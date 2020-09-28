@@ -10,11 +10,6 @@ export class Author {
   @Column()
   username: string
 
-  @Column({
-    nullable: true,
-  })
-  avatarURL: string
-
   @ApiProperty({ type: () => Article })
   @OneToMany(
     () => Article,

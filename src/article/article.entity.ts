@@ -10,24 +10,13 @@ export class Article {
   @Column('text')
   content: string
 
-  @Column({
-    type: 'date',
-    nullable: true,
-  })
-  publishDate: string
-
-  @Column({
-    default: 0,
-  })
-  likes: number
-
   @ApiProperty({ type: () => Author })
   @ManyToOne(
     () => Author,
     author => author.articles,
-    {
-      onDelete: 'CASCADE',
-    },
   )
   author: Author
+
+  @Column()
+  authorId: number
 }
